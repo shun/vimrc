@@ -1,0 +1,95 @@
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+depends = ['vim-lsp-settings', 'ddc-vim-lsp']
+on_ft = [
+    'c',
+    'cs',
+    'cpp',
+    'css',
+    'dockerfile',
+    'go',
+    'html',
+    'javascript',
+    'php',
+    'python',
+    'rust',
+    'typescript',
+    'typescriptreact',
+    'vue',
+    'xml',
+    'yaml',
+]
+hook_add = '''
+source ~/.vim/rc.d/rc_vim-lsp.vim
+'''
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+on_ft = [
+    'c',
+    'cs',
+    'cpp',
+    'css',
+    'dockerfile',
+    'go',
+    'html',
+    'javascript',
+    'php',
+    'python',
+    'rust',
+    'typescript',
+    'typescriptreact',
+    'vue',
+    'xml',
+    'yaml',
+]
+hook_source = '''
+'''
+
+[[plugins]]
+repo = 'mattn/vim-sonictemplate'
+on_ft = [
+    'c',
+    'cpp',
+    'css',
+    'dockerfile',
+    'go',
+    'html',
+    'javascript',
+    'php',
+    'python',
+    'rust',
+    'typescript',
+    'typescriptreact',
+    'vue',
+    'xml',
+    'yaml',
+]
+hook_source = '''
+source ~/.vim/rc.d/rc_sonictemplate.vim
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'vim-test/vim-test'
+hook_add = '''
+let g:test#preserve_screen = 1
+let test#neovim#start_normal = 1
+let test#basic#start_normal = 1
+nnoremap <silent> <space>tn <cmd>TestNearest<cr>
+nnoremap <silent> <space>tf <cmd>TestFile<cr>
+nnoremap <silent> <space>ts <cmd>TestSuite<cr>
+nnoremap <silent> <space>tl <cmd>TestLast<cr>
+nnoremap <silent> <space>tg <cmd>TestVisit<cr>
+'''
+on_cmd = ['TestNearest', 'TestFile', 'TestSuite', 'TestLast', 'TestVisit']
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+on_cmd = ['Deol']
+hook_add = '''
+""<Cmd>Deol %s -no-start-insert -toggle -split=<CR>
+'''

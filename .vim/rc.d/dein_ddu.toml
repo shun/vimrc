@@ -1,0 +1,141 @@
+[[plugins]]
+repo = 'Shougo/ddu.vim'
+rev='v1.8.8'
+#repo = '~/ghq/github.com/shun/ddu.vim/'
+depends = 'denops.vim'
+on_source = 'denops.vim'
+hook_add = '''
+nnoremap <Space>/ <Cmd>Ddu -name=search line -ui-param-startFilter<CR>
+nnoremap <Space>* <Cmd>Ddu -name=search line -input=`expand('<cword>')` -ui-param-startFilter=v:false<CR>
+nnoremap <Space>g <Cmd>Ddu rg -ui-param-ignoreEmpty -source-param-input=`input('Input: ')`<CR>
+nnoremap <Space>n <Cmd>Ddu -name=search -resume -ui-param-startFilter=v:false<CR>
+nnoremap <Space>;f <Cmd>Ddu file_external<CR>
+'''
+
+hook_source = '''
+call ddu#custom#patch_global({
+    \   'ui': 'ff',
+    \   'profile': v:false,
+    \   'sourceOptions' : {
+    \     '_' : {
+    \       'matchers': ['matcher_substring'],
+    \     },
+    \   },
+    \   'sourceParams' : {
+    \     'file_external': {
+    \       'cmd': ['rg', '--ignore-case', '--files', '--glob', '!.git',
+    \             '--color', 'never', '--no-messages'],
+    \       'updateItems': 50000,
+    \     },
+    \     'rg' : {
+    \       'args': ['--json'],
+    \       'highlights': {
+    \         'path': 'Blue',
+    \         'lineNr': 'Green',
+    \         'word': 'SpellBad',
+    \       }
+    \     },
+    \   },
+    \   'kindOptions': {
+    \     'file': {
+    \       'defaultAction': 'open',
+    \     },
+    \   },
+    \   'uiParams': {
+    \     'ff': {
+    \       'filterSplitDirection': 'floating',
+    \     }
+    \   },
+    \   'filterParams': {
+    \     'matcher_substring': {
+    \       'highlightMatched': 'Orange',
+    \     },
+    \   },
+    \   'file_old': {
+    \     'matchers': [
+    \       'matcher_substring', 'matcher_relative', 'matcher_hidden',
+    \     ],
+    \   },
+    \   'file_external': {
+    \     'matchers': [
+    \       'matcher_substring', 'matcher_hidden',
+    \     ],
+    \   },
+    \ })
+call ddu#custom#patch_local('default', {
+    \   'uiParams': {
+    \     'ff': {
+    \       'split': has('nvim') ? 'floating' : 'horizontal',
+    \       'winCol': &columns / 20,
+    \       'winWidth': &columns / 10 * 9,
+    \       'prompt': '> ',
+    \     }
+    \   },
+    \ })
+'''
+
+[plugins.ftplugin]
+ddu-ff = '''
+nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+nnoremap <buffer><silent> <Space> <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
+nnoremap <buffer><silent> i <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+nnoremap <buffer><silent> q <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+'''
+
+ddu-ff-filter = '''
+inoremap <buffer><silent> <CR> <Esc><Cmd>close<CR>
+nnoremap <buffer><silent> <CR> <Cmd>close<CR>
+'''
+
+[[plugins]]
+repo = '~/ghq/github.com/shun/ddu-source-buffer'
+#repo = 'shun/ddu-source-buffer'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = '~/ghq/github.com/shun/ddu-source-rg'
+#repo = 'shun/ddu-source-rg'
+on_source = 'ddu.vim'
+on_cmd = 'DduRg'
+
+[[plugins]]
+repo = 'Shougo/ddu-commands.vim'
+depends = 'ddu.vim'
+on_cmd = 'Ddu'
+
+[[plugins]]
+repo = 'Shougo/ddu-ui-ff'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-kind-file'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_substring'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-file_old'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_relative'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-filter-matcher_hidden'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'matsui54/ddu-source-file_external'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Shougo/ddu-source-line'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'matsui54/ddu-source-highlight'
+on_source = 'ddu.vim'
+

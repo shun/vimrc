@@ -1,0 +1,83 @@
+^dc$
+	version: "3.7"
+
+	#x-common:
+	#  - &DB_ROOTPASS passw0rd
+	#  - &DB_PASS db
+	#  - &DB_USER db
+	#  - &DB_NAME db
+
+	services:
+	  {{_cursor_}}:
+	    tty: true
+	    #build:
+	    #  context: ./
+	    #  dockerfile: ./Dockerfile
+	    #  args:
+	    #    http_proxy: ${http_proxy}
+	    #    https_proxy: ${http_proxy}
+	    #restart: always
+	    #environment:
+	    #volumes:
+	    #ports:
+	    #entrypoint:
+	    #command:
+	    #working_dir:
+	    #logging:
+	    #  driver: "json-file" # defaults if not specified
+	    #  options:
+	    #    max-size: "1m"
+	    #    max-file: "1"
+	#volumes:
+	#  db:
+	#    driver: "local"
+
+^oa
+	openapi: 3.0.0
+	info:
+	  version: 1.0.0
+	  title:
+	  description:
+	servers:
+	  - url: 
+	
+	paths:
+	  {{_cursor_}}:
+	    get:
+	      description:
+	       parameters:
+	         - name:
+	           in:
+	           description:
+	           schema:
+	             type: 
+	      responses:
+	        '200':
+	          description:
+	            content:
+	              application/json:
+	                schema:
+	                 type:
+	                 items:
+	                   type:
+	        '400':
+	          description: Invalid request
+	          content:
+	            application/json:
+	              schema:
+	              type: object
+	              properties:
+	                message:
+	                  type: string
+	    post:
+	      description:
+	      requestBody:
+	        required: true
+	        content:
+	          application/json:
+	            schema:
+	              type:
+	              required:
+	              properties:
+	components:
+	  schema:

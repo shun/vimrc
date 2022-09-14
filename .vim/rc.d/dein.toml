@@ -1,0 +1,178 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+rtp = ''
+
+[[plugins]]
+repo='ghifarit53/tokyonight-vim'
+hook_add = '''
+set termguicolors
+
+let g:tokyonight_style = 'storm' " available: night, storm
+let g:tokyonight_enable_italic = 1
+let g:tokyonight_menu_selection_background = 'blue'
+
+colorscheme tokyonight
+'''
+
+[[plugins]]
+repo='cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+source ~/.vim/rc.d/rc_lightline.vim
+'''
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indentLine_char = '|'
+let g:indentLine_fileType = ['cpp', 'c', 'go', 'python', 'text', 'sh', 'typescript', 'typescriptreact', 'yaml']
+let g:indentLine_color_term = 239
+'''
+
+[[plugins]]
+repo='vim-denops/denops.vim'
+hook_add = '''
+let g:denops_server_addr = '127.0.0.1:32123'
+'''
+
+[[plugins]]
+repo='vim-denops/denops-shared-server.vim'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+hook_source = '''
+let g:context_filetype#ignore_patterns = {
+    \ 'toml': ['^\s*#\s*'],
+    \ }
+'''
+
+[[plugins]]
+repo = 'gamoutatsumi/dps-ghosttext.vim'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+hook_add = '''
+let g:lexima_accept_pum_with_enter = 1
+'''
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+
+[[plugins]]
+repo = 'hrsh7th/vim-searchx'
+hook_add = '''
+" Overwrite / and ?.
+nnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
+nnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
+xnoremap ? <Cmd>call searchx#start({ 'dir': 0 })<CR>
+xnoremap / <Cmd>call searchx#start({ 'dir': 1 })<CR>
+cnoremap ; <Cmd>call searchx#select()<CR>
+
+" Move to next/prev match.
+nnoremap N <Cmd>call searchx#prev_dir()<CR>
+nnoremap n <Cmd>call searchx#next_dir()<CR>
+xnoremap N <Cmd>call searchx#prev_dir()<CR>
+xnoremap n <Cmd>call searchx#next_dir()<CR>
+""nnoremap <C-k> <Cmd>call searchx#prev()<CR>
+""nnoremap <C-j> <Cmd>call searchx#next()<CR>
+""xnoremap <C-k> <Cmd>call searchx#prev()<CR>
+""xnoremap <C-j> <Cmd>call searchx#next()<CR>
+""cnoremap <C-k> <Cmd>call searchx#prev()<CR>
+""cnoremap <C-j> <Cmd>call searchx#next()<CR>
+
+" Clear highlights
+nnoremap <C-l> <Cmd>call searchx#clear()<CR>
+
+let g:searchx = {}
+
+" Auto jump if the recent input matches to any marker.
+let g:searchx.auto_accept = v:true
+
+" The scrolloff value for moving to next/prev.
+let g:searchx.scrolloff = &scrolloff
+
+" To enable scrolling animation.
+let g:searchx.scrolltime = 500
+
+" To enable auto nohlsearch after cursor is moved
+let g:searchx.nohlsearch = {}
+let g:searchx.nohlsearch.jump = v:true
+
+" Marker characters.
+let g:searchx.markers = split('ABCDEFGHIJKLMNOPQRSTUVWXYZ', '.\zs')
+
+" Convert search pattern.
+function g:searchx.convert(input) abort
+  if a:input !~# '\k'
+    return '\V' .. a:input
+  endif
+  return a:input[0] .. substitute(a:input[1:], '\\\@<! ', '.\\{-}', 'g')
+endfunction
+
+highlight link SearchxMarker PmenuSel
+highlight link SearchxMarkerCurrent PmenuSel
+'''
+
+#[[plugins]]
+#repo = 'matsui54/denops-signature_help'
+#repo = '~/ghq/github.com/shun/denops-signature_help'
+#hook_add = '''
+#call signature_help#enable()
+#'''
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+
+[[plugins]]
+repo = 'mhinz/vim-sayonara'
+hook_add = '''
+nnoremap <space>q <Cmd>Sayonara<CR>
+nnoremap <space>Q <Cmd>Sayonara!<CR>
+'''
+
+[[plugins]]
+repo = 'lambdalisue/gin.vim'
+#repo = 'lambdalisue/gina.vim'
+#on_cmd = ['Gin', 'GinDiff', 'GinEdit', 'GinPatch', 'GinStatus']
+hook_source = '''
+'''
+
+[[plugins]]
+repo = 'lambdalisue/guise.vim'
+#on_cmd = ['Gin', 'GinDiff', 'GinEdit', 'GinPatch', 'GinStatus']
+
+[[plugins]]
+repo = 'tennashi/gitsign.vim'
+hook_add = '''
+let g:gitsign#auto_enable = 0
+let g:gitsign#highlight#enable_lines = 0
+let g:gitsign#highlight#enable_marks = 1
+
+let g:gitsign#sign#delete_mark = '-'
+let g:gitsign#sign#delete_first_line_mark = '󿕛'
+let g:gitsign#sign#add_mark = '+'
+let g:gitsign#sign#change_mark = '+'
+'''
+
+##[[plugins]]
+##repo = 'kuuote/denops-skkeleton.vim'
+##hook_source = '''
+##    call skkeleton#register_kanatable('rom', {
+##          \ 'hh': ['お', 'h'],
+##          \ 'jj': 'escape',
+##          \ 'z,': ['―', ''],
+##          \ "z\<Space>": ["\u3000", ''],
+##          \ })
+##'''
+##hook_add = '''
+##    imap <C-j> <Plug>(skkeleton-toggle)
+##    cmap <C-j> <Plug>(skkeleton-toggle)
+##'''
+##hook_source = '''
+##call skkeleton#config(#{
+##      \ globalJisyo: expand('~/.skk-jisyo'),
+##      \ eggLikeNewline: v:true,
+##      \ })
+##'''
