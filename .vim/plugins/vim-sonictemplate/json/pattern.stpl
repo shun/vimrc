@@ -1,0 +1,54 @@
+^dnj$
+	{
+	  "compilerOptions": {
+	    "lib": ["deno.window"],
+	    "strict": true
+	  },
+	  "lint": {
+	    "files": {
+	      "include": [
+	        "src",
+	        "pages",
+	        "components",
+	        "libs"
+	      ],
+	      "exclude": [
+	          ".git",
+	          ".next",
+	          "node_modules"
+	      ]
+	    },
+	    "rules": {
+	      "tags": ["recommended"],
+	      "exclude": [
+	        "no-unused-vars",
+	        "no-implicit-any",
+	        "no-explicit-any",
+	        "require-await",
+	        "ban-ts-comment"
+	      ]
+	    }
+	  },
+	  "fmt": {
+	    "files": {
+	      "include": [
+	        "src",
+	        "pages",
+	        "components",
+	        "libs",
+	        "deno.jsonc"
+	      ],
+	      "exclude": [
+	          ".git",
+	          ".next",
+	          "node_modules"
+	      ]
+	    },
+	    "options": {
+	      "useTabs": false,
+	      "lineWidth": 100,
+	      "indentWidth": 2,
+	      "singleQuote": false
+	    }
+	  }
+	}
