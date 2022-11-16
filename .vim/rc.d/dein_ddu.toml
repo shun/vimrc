@@ -9,7 +9,8 @@ nnoremap <Space>/ <Cmd>Ddu -name=search line -ui-param-startFilter<CR>
 nnoremap <Space>* <Cmd>Ddu -name=search line -input=`expand('<cword>')` -ui-param-startFilter=v:false<CR>
 nnoremap <Space>g <Cmd>Ddu rg -ui-param-ignoreEmpty -source-param-input=`input('Input: ')`<CR>
 nnoremap <Space>n <Cmd>Ddu -name=search -resume -ui-param-startFilter=v:false<CR>
-nnoremap <Space>;f <Cmd>Ddu file_external<CR>
+nnoremap <Space>f <Cmd>Ddu file_external<CR>
+nnoremap <Space>b <Cmd>Ddu buffer<CR>
 '''
 
 hook_source = '''
