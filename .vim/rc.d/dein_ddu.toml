@@ -27,6 +27,9 @@ call ddu#custom#patch_global({
     \             '--color', 'never', '--no-messages'],
     \       'updateItems': 50000,
     \     },
+    \     'buffer' : {
+    \       'orderby': 'desc',
+    \     },
     \     'rg' : {
     \       'args': ['--json'],
     \       'highlights': {
