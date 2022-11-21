@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
-rev='v1.8.8'
+rev='v1.13.0'
 #repo = '~/ghq/github.com/shun/ddu.vim/'
 depends = 'denops.vim'
 on_source = 'denops.vim'
