@@ -8,10 +8,18 @@ let s:cache_home = expand("$XDG_CACHE_HOME")
 let g:config_dir = expand("~/.vim")
 let g:cache_dir = ""
 
-if s:cache_home == "$XDG_CACHE_HOME"
-  let g:cache_dir = expand('~/.cache/vim')
+if has('nvim')
+    if s:cache_home == "$XDG_CACHE_HOME"
+      let g:cache_dir = expand('~/.cache/nvim')
+    else
+      let g:cache_dir = expand("$XDG_CACHE_HOME") . '/nvim'
+    endif
 else
-  let g:cache_dir = expand("$XDG_CACHE_HOME") . '/vim'
+    if s:cache_home == "$XDG_CACHE_HOME"
+      let g:cache_dir = expand('~/.cache/vim')
+    else
+      let g:cache_dir = expand("$XDG_CACHE_HOME") . '/vim'
+    endif
 endif
 
 let g:rc_dir = g:config_dir . '/rc.d'
