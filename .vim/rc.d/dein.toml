@@ -38,6 +38,9 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo='lambdalisue/kensaku.vim'
+
+[[plugins]]
 repo='vim-denops/denops-shared-server.vim'
 
 [[plugins]]

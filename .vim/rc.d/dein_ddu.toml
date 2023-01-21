@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
-rev='v1.13.0'
+rev='v2.2.0'
 #repo = '~/ghq/github.com/shun/ddu.vim/'
 depends = 'denops.vim'
 on_source = 'denops.vim'
@@ -8,6 +8,8 @@ hook_add = '''
 nnoremap <Space>/ <Cmd>Ddu -name=search line -ui-param-startFilter<CR>
 nnoremap <Space>* <Cmd>Ddu -name=search line -input=`expand('<cword>')` -ui-param-startFilter=v:false<CR>
 nnoremap <Space>n <Cmd>Ddu -name=search -resume -ui-param-startFilter=v:false<CR>
+
+nnoremap <Space>g <Cmd>Ddu -name=grep rg -ui-param-ignoreEmpty -source-param-input=`input('Input: ', expand('<cword>'))`<CR>
 
 nnoremap ;g <Cmd>Ddu -name=grep rg -ui-param-ignoreEmpty -source-param-input=`input('Input: ')`<CR>
 nnoremap ;* <Cmd>Ddu -name=grep rg -source-param-input=`input('Input: ', expand('<cword>'))`<CR>
@@ -23,7 +25,7 @@ call ddu#custom#patch_global({
     \   'profile': v:false,
     \   'sourceOptions' : {
     \     '_' : {
-    \       'matchers': ['matcher_substring'],
+    \       'matchers': ['matcher_kensaku'],
     \     },
     \   },
     \   'sourceParams' : {
@@ -37,6 +39,7 @@ call ddu#custom#patch_global({
     \     },
     \     'rg' : {
     \       'args': ['--json'],
+    \       'inputType': 'migemo',
     \       'highlights': {
     \         'path': 'Blue',
     \         'lineNr': 'Green',
@@ -55,7 +58,7 @@ call ddu#custom#patch_global({
     \     }
     \   },
     \   'filterParams': {
-    \     'matcher_substring': {
+    \     'matcher_kensaku': {
     \       'highlightMatched': 'Orange',
     \     },
     \   },
@@ -147,5 +150,9 @@ on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'matsui54/ddu-source-highlight'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'Milly/ddu-filter-kensaku'
 on_source = 'ddu.vim'
 

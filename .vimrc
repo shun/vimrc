@@ -41,7 +41,12 @@ if has('win32') || has('win64') || has('mac')
 else
   set clipboard=unnamed,unnamedplus
 endif
-set completeopt=noinsert,menuone
+"set completeopt=noinsert,menuone
+set completeopt=menuone
+if exists('+completepopup')
+  set completeopt+=popup
+  set completepopup=height:4,width:60,highlight:InfoPopup
+endif
 set cursorline
 set encoding=utf-8
 set expandtab
@@ -50,6 +55,7 @@ set fileformats=unix,mac,dos
 set hidden
 set hlsearch
 set ignorecase
+set laststatus=2
 set list
 set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 "set mouse=a
