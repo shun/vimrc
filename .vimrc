@@ -179,6 +179,8 @@ cnoremap <C-p> <Up>
 
 " terminal
 tnoremap <Esc> <C-\><C-n>
+tmap <C-p> <Up>
+tmap <C-n> <Down>
 "tnoremap <UP> <C-\><C-n><C-w>ki
 "tnoremap <DOWN> <C-\><C-n><C-w>ji
 "tnoremap <LEFT> <C-\><C-n><C-w>hi
