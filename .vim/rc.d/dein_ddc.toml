@@ -1,11 +1,17 @@
 [[plugins]]
 repo = 'Shougo/ddc.vim'
-rev='3.2.0'
+rev='3.9.1'
 depends = ['denops.vim', 'context_filetype.vim']
 on_event = ['InsertEnter']
 hook_source = '''
   inoremap <silent><expr> <C-l> ddc#complete_common_string()
   inoremap <silent><expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
+  inoremap <silent><expr> <TAB> ddc#map#manual_complete()
+  inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+  inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
+  inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+  inoremap <C-o>   <Cmd>call pum#map#confirm_word()<CR>
+
   call ddc#custom#patch_global('sources', ['vim-lsp', 'around', 'buffer', 'file'])
   call ddc#custom#patch_global('sourceOptions', {
       \ '_': {
@@ -23,7 +29,6 @@ hook_source = '''
       \     'mark': 'F',
       \     'isVolatile': v:true,
       \     'forceCompletionPattern': '\S/\S*',
-      \     'cwdAsRoot': v:true,
       \     'minAutoCompleteLength': 1,
       \  },
       \ 'vim-lsp': {
@@ -37,6 +42,11 @@ hook_source = '''
       \    'requireSameFiletype': v:false
       \ },
       \ })
+  call ddc#custom#patch_global('sourceParams', {
+      \ 'buffer': {
+      \     'cwdAsRoot': v:true,
+      \ },
+      \ })
   call ddc#custom#patch_filetype(['css', 'typescriptreact'], {
       \ 'sourceParams': {
       \   'vim-lsp': {
@@ -48,7 +58,8 @@ hook_source = '''
       \ 'InsertEnter', 'TextChangedI', 'TextChangedP',
       \ 'CmdlineEnter', 'CmdlineChanged', 'TextChangedT',
       \ ])
-  call ddc#custom#patch_global('ui', 'native')
+  call ddc#custom#patch_global('ui', 'pum')
+  call pum#set_option({ 'use_complete': v:true })
   call ddc#enable()
 '''
 
@@ -58,7 +69,7 @@ depends = ['ddc.vim']
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-around'
+repo = 'Shougo/ddc-source-around'
 depends = ['ddc.vim']
 on_source = 'ddc.vim'
 
@@ -85,17 +96,27 @@ depends = ['ddc.vim']
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'LumaKernel/ddc-file'
+repo = 'LumaKernel/ddc-source-file'
 depends = ['ddc.vim']
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-omni'
+repo = 'Shougo/ddc-source-omni'
 depends = ['ddc.vim']
 on_source = 'ddc.vim'
 
 [[plugins]]
-repo = 'Shougo/ddc-cmdline-history'
+repo = 'Shougo/ddc-source-cmdline-history'
+depends = ['ddc.vim']
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/pum.vim'
+depends = ['ddc.vim']
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo = 'Shougo/ddc-ui-pum'
 depends = ['ddc.vim']
 on_source = 'ddc.vim'
 

@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
-rev='v2.2.0'
+rev='v3.4.4'
 #repo = '~/ghq/github.com/shun/ddu.vim/'
 depends = 'denops.vim'
 on_source = 'denops.vim'
@@ -26,6 +26,16 @@ call ddu#custom#patch_global({
     \   'sourceOptions' : {
     \     '_' : {
     \       'matchers': ['matcher_kensaku'],
+    \     },
+    \     'file_old': {
+    \       'matchers': [
+    \         'matcher_substring', 'matcher_relative', 'matcher_hidden',
+    \       ],
+    \     },
+    \     'file_external': {
+    \       'matchers': [
+    \         'matcher_substring', 'matcher_hidden',
+    \       ],
     \     },
     \   },
     \   'sourceParams' : {
@@ -61,16 +71,6 @@ call ddu#custom#patch_global({
     \     'matcher_kensaku': {
     \       'highlightMatched': 'Orange',
     \     },
-    \   },
-    \   'file_old': {
-    \     'matchers': [
-    \       'matcher_substring', 'matcher_relative', 'matcher_hidden',
-    \     ],
-    \   },
-    \   'file_external': {
-    \     'matchers': [
-    \       'matcher_substring', 'matcher_hidden',
-    \     ],
     \   },
     \ })
 call ddu#custom#patch_local('default', {
