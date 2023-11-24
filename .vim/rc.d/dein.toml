@@ -38,6 +38,18 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'matsui54/denops-popup-preview.vim'
+hook_add = '''
+	let g:popup_preview_config = {
+	      \ 'delay': 30,
+        \ 'maxWidth': 100,
+        \ 'winblend': 0,
+        \ 'debug': v:false,
+	      \ }
+  let g:markdown_fenced_languages = ['ts=typescript']
+'''
+
+[[plugins]]
 repo='lambdalisue/kensaku.vim'
 
 [[plugins]]

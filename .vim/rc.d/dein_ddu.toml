@@ -37,6 +37,9 @@ call ddu#custom#patch_global({
     \         'matcher_substring', 'matcher_hidden',
     \       ],
     \     },
+    \     'help': {
+    \         'defaultAction': 'open',
+    \     },
     \   },
     \   'sourceParams' : {
     \     'file_external': {
@@ -154,5 +157,9 @@ on_source = 'ddu.vim'
 
 [[plugins]]
 repo = 'Milly/ddu-filter-kensaku'
+on_source = 'ddu.vim'
+
+[[plugins]]
+repo = 'matsui54/ddu-source-help'
 on_source = 'ddu.vim'
 

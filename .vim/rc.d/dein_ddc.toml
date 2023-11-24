@@ -6,9 +6,16 @@ on_event = ['InsertEnter']
 hook_source = '''
   inoremap <silent><expr> <C-l> ddc#complete_common_string()
   inoremap <silent><expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
-  inoremap <silent><expr> <TAB> ddc#map#manual_complete()
+  ""inoremap <silent><expr> <TAB> ddc#map#manual_complete()
+  inoremap <expr> <TAB>
+        \ pum#visible() ?
+        \   '<Cmd>call pum#map#insert_relative(+1, "empty")<CR>' :
+        \ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+        \   '<TAB>' : ddc#map#manual_complete()
   inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
   inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
+  ""inoremap <C-n>   <Cmd>call pum#map#insert_relative(+1, "empty")<CR>
+  ""inoremap <C-p>   <Cmd>call pum#map#insert_relative(-1, "empty")<CR>
   inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
   inoremap <C-o>   <Cmd>call pum#map#confirm_word()<CR>
 
@@ -60,6 +67,7 @@ hook_source = '''
       \ ])
   call ddc#custom#patch_global('ui', 'pum')
   call pum#set_option({ 'use_complete': v:true })
+  call popup_preview#enable()
   call ddc#enable()
 '''
 

@@ -144,6 +144,8 @@ nnoremap Q <Nop>
 nnoremap QQ :q<cr>
 noremap <C-e> <END>
 noremap <silent><C-a> :call <SID>home()<cr>
+nmap <C-?> gcc
+xmap <C-?> gcc
 
 noremap H <C-w>h
 noremap J <C-w>j
