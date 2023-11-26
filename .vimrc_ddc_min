@@ -1,0 +1,66 @@
+set encoding=utf-8
+scriptencoding utf-8
+set nocp
+set signcolumn=yes
+
+let g:loaded_getscript = 1
+let g:loaded_getscriptPlugin = 1
+let g:loaded_logiPat = 1
+let g:loaded_spellfile_plugin = 1
+let g:loaded_rrhelper = 1
+let g:loaded_vimball = 1
+let g:loaded_vimballPlugin = 1
+
+let s:dein_repo_dir = expand('~/.cache/vim.min/repos/github.com/Shougo/dein.vim')
+
+if !isdirectory(s:dein_repo_dir)
+	execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+endif
+execute 'set runtimepath^=' . s:dein_repo_dir
+
+if dein#load_state('~/.cache/vim.min/')
+    call dein#begin('~/.cache/vim.min/')
+    call dein#add('prabirshrestha/vim-lsp')
+    call dein#add('mattn/vim-lsp-settings')
+    call dein#add('vim-denops/denops.vim')
+    call dein#add('Shougo/ddc.vim')
+    call dein#add('Shougo/ddc-ui-pum')
+    call dein#add('Shougo/pum.vim')
+    call dein#add('Shougo/ddc-filter-matcher_head')
+    call dein#add('Shougo/ddc-filter-sorter_rank')
+    call dein#add('shun/ddc-source-vim-lsp')
+    "call dein#add('matsui54/denops-popup-preview.vim')
+    call dein#end()
+    call dein#save_state()
+endif
+
+if dein#check_install()
+    call dein#install()
+endif
+filetype plugin indent on
+syntax enable
+
+call ddc#custom#patch_global('ui', 'pum')
+call ddc#custom#patch_global('sources', ['vim-lsp'])
+call ddc#custom#patch_global('sourceOptions', {
+  \ '_': {
+  \   'ignoreCase': v:true,
+  \   'matchers': ['matcher_head'],
+  \   'sorters': ['sorter_rank'],
+  \ },
+  \ 'vim-lsp': {
+  \     'mark': 'LSP',
+  \     'forceCompletionPattern': '\$|\.|:|->|"\w+/*',
+  \     'minAutoCompleteLength': 1,
+  \ },
+  \ })
+call pum#set_option({ 'use_complete': v:true })
+call popup_preview#enable()
+call ddc#enable()
+
+inoremap <silent><expr> <TAB> ddc#map#manual_complete()
+inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
+inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
+inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
+inoremap <C-o>   <Cmd>call pum#map#confirm_word()<CR>
+let g:lsp_log_file = expand('/tmp/vim-lsp.log')
