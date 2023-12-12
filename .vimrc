@@ -38,6 +38,10 @@ const s:vimrcs = [
 \	$'{$MYRC_HOME}/filetype.vim',
 \]
 
+command DppUpdate call dpp#async_ext_action('installer', 'checkNotUpdated')
+command DppUpdateAll call dpp#async_ext_action('installer', 'update')
+command DppInstall call dpp#async_ext_action('installer', 'install')
+
 for s:vimrc in s:vimrcs
 	execute 'source' s:vimrc
 endfor
