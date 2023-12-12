@@ -50,5 +50,6 @@ filetype indent plugin on
 
 if has('syntax')
 	syntax on
+	execute 'source' $'{$MYRC_HOME}/colors.vim'
 endif
 
