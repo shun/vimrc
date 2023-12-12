@@ -29,11 +29,6 @@ let $MYRC_HOME = $'{g:myrc_home}'
 
 "-------------------------------------------------------------
 
-set shortmess=aI
-set noruler noshowcmd noshowmode
-set shiftwidth=4
-set tabstop=4
-
 " initialize dpp
 execute 'source' $'{g:myrc_home}/dpp/dpp.vim'
 
