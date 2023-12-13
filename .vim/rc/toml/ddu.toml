@@ -1,19 +1,19 @@
 [[plugins]]
 repo = 'Shougo/ddu.vim'
-rev='v3.4.4'
+#rev='v3.4.4'
 #repo = '~/ghq/github.com/shun/ddu.vim/'
 depends = 'denops.vim'
 on_source = 'denops.vim'
 hook_add = '''
-nnoremap <Space>/ <Cmd>Ddu -name=search line -ui-param-startFilter<CR>
-nnoremap <Space>* <Cmd>Ddu -name=search line -input=`expand('<cword>')` -ui-param-startFilter=v:false<CR>
-nnoremap <Space>n <Cmd>Ddu -name=search -resume -ui-param-startFilter=v:false<CR>
+nnoremap <Space>/ <Cmd>Ddu -name=search line -ui-param-ff-startFilter<CR>
+nnoremap <Space>* <Cmd>Ddu -name=search line -input=`expand('<cword>')` -ui-param-ff-startFilter=v:false<CR>
+nnoremap <Space>n <Cmd>Ddu -name=search -resume -ui-param-ff-startFilter=v:false<CR>
 
-nnoremap <Space>g <Cmd>Ddu -name=grep rg -ui-param-ignoreEmpty -source-param-input=`input('Input: ', expand('<cword>'))`<CR>
+nnoremap <Space>g <Cmd>Ddu -name=grep rg -source-param-rg-input=`input('Input: ', expand('<cword>'))`<CR>
 
-nnoremap ;g <Cmd>Ddu -name=grep rg -ui-param-ignoreEmpty -source-param-input=`input('Input: ')`<CR>
-nnoremap ;* <Cmd>Ddu -name=grep rg -source-param-input=`input('Input: ', expand('<cword>'))`<CR>
-nnoremap ;n <Cmd>Ddu -name=grep -resume -ui-param-startFilter=v:false<CR>
+nnoremap ;g <Cmd>Ddu -name=grep rg -source-param-rg-input=`input('Input: ')`<CR>
+nnoremap ;* <Cmd>Ddu -name=grep rg -source-param-rg-input=`input('Input: ', expand('<cword>'))`<CR>
+nnoremap ;n <Cmd>Ddu -name=grep -resume -ui-param-ff-startFilter=v:false<CR>
 
 nnoremap <Space>f <Cmd>Ddu file_external<CR>
 nnoremap <Space>b <Cmd>Ddu buffer<CR>
@@ -56,7 +56,7 @@ call ddu#custom#patch_global({
     \       'highlights': {
     \         'path': 'Blue',
     \         'lineNr': 'Green',
-    \         'word': 'SpellBad',
+    \         'word': 'Orange',
     \       }
     \     },
     \   },
