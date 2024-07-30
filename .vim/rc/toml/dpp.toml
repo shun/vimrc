@@ -88,9 +88,6 @@ hook_add = '''
 let g:lexima_accept_pum_with_enter = 1
 '''
 
-[[plugins]]
-repo = 'tyru/caw.vim'
-
 #[[plugins]]
 #repo = 'hrsh7th/vim-searchx'
 #hook_add = '''
