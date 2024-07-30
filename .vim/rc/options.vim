@@ -66,6 +66,7 @@ if has("autocmd")
   autocmd FileType typescriptreact setlocal sw=2 sts=2 ts=2 et omnifunc=htmlcomplete#CompleteTags
   autocmd FileType yaml            setlocal sw=2 sts=2 ts=2 et
   autocmd FileType js              setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType rust            setlocal sw=4 sts=4 ts=4 et
   autocmd FileType vue             setlocal sw=2 sts=2 ts=2 et
   autocmd FileType plantuml        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType stpl            setlocal sw=4 sts=4 ts=4 noet

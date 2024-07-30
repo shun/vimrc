@@ -19,10 +19,9 @@ nnoremap <silent>j gj
 nnoremap <silent>k gk
 nnoremap Q <Nop>
 nnoremap QQ :q<cr>
-noremap <C-e> <END>
-noremap <silent><C-a> :call <SID>home()<cr>
-nmap <C-?> gcc
-xmap <C-?> gcc
+nnoremap <C-e> <END>
+nnoremap <silent><C-a> :call <SID>home()<cr>
+noremap <C-_> <cmd>Contextment<cr>
 
 noremap H <C-w>h
 noremap J <C-w>j
