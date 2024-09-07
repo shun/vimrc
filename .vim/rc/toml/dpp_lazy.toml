@@ -1,24 +1,25 @@
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
-depends = ['vim-lsp-settings', 'ddc-vim-lsp']
-on_ft = [
-    'c',
-    'cs',
-    'cpp',
-    'css',
-    'dockerfile',
-    'go',
-    'html',
-    'javascript',
-    'php',
-    'python',
-    'rust',
-    'typescript',
-    'typescriptreact',
-    'vue',
-    'xml',
-    'yaml',
-]
+depends = ['vim-lsp-settings']
+on_event = ['InsertEnter']
+#on_ft = [
+#    'c',
+#    'cs',
+#    'cpp',
+#    'css',
+#    'dockerfile',
+#    'go',
+#    'html',
+#    'javascript',
+#    'php',
+#    'python',
+#    'rust',
+#    'typescript',
+#    'typescriptreact',
+#    'vue',
+#    'xml',
+#    'yaml',
+#]
 hook_add = '''
 "let g:lsp_signs_enabled = 0
 "let g:lsp_diagnostics_enabled = 0
@@ -86,6 +87,7 @@ nnoremap <silent>sh <Cmd>LspHover<cr>
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+on_event = ['InsertEnter']
 on_ft = [
     'c',
     'cs',
@@ -109,6 +111,7 @@ hook_source = '''
 
 [[plugins]]
 repo = 'mattn/vim-sonictemplate'
+on_event = ['InsertEnter']
 on_ft = [
     'c',
     'cpp',

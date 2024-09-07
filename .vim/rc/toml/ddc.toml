@@ -18,7 +18,7 @@ hook_source = '''
   inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
   inoremap <C-o>   <Cmd>call pum#map#confirm_word()<CR>
 
-  call ddc#custom#patch_global('sources', ['vim-lsp', 'around', 'buffer', 'file'])
+  call ddc#custom#patch_global('sources', ['lsp', 'around', 'buffer', 'file'])
   call ddc#custom#patch_global('sourceOptions', {
       \ '_': {
       \   'ignoreCase': v:true,
@@ -37,7 +37,7 @@ hook_source = '''
       \     'forceCompletionPattern': '\S/\S*',
       \     'minAutoCompleteLength': 1,
       \  },
-      \ 'vim-lsp': {
+      \ 'lsp': {
       \     'mark': 'LSP',
       \     'forceCompletionPattern': '\.\w*|:\w*|->\w*',
       \     'minAutoCompleteLength': 1,
@@ -45,19 +45,16 @@ hook_source = '''
       \ })
   call ddc#custom#patch_global('sourceParams', {
       \ 'buffer': {
-      \    'requireSameFiletype': v:false
+      \    'requireSameFiletype': v:false,
+      \    'cwdAsRoot': v:true,
       \ },
-      \ })
-  call ddc#custom#patch_global('sourceParams', {
-      \ 'buffer': {
-      \     'cwdAsRoot': v:true,
-      \ },
-      \ })
-  call ddc#custom#patch_filetype(['css', 'typescriptreact'], {
-      \ 'sourceParams': {
-      \   'vim-lsp': {
-      \     'ignoreCompleteProvider': v:true,
-      \   },
+      \ 'lsp': {
+      \    'lspEngine': 'vim-lsp',
+      \    'bufnr': v:null,
+      \    'confirmBehavior': 'insert',
+      \    'enableAdditionalTextEdit': v:true,
+      \    'enableDisplayDetail': v:true,
+      \    'enableResolveItem': v:true,
       \ },
       \ })
   call ddc#custom#patch_global('autoCompleteEvents', [
@@ -65,7 +62,7 @@ hook_source = '''
       \ 'CmdlineEnter', 'CmdlineChanged', 'TextChangedT',
       \ ])
   call ddc#custom#patch_global('ui', 'pum')
-  ""call popup_preview#enable()
+  call popup_preview#enable()
   call ddc#enable()
 '''
 
@@ -89,10 +86,22 @@ repo = 'Shougo/ddc-sorter_rank'
 depends = ['ddc.vim']
 on_source = 'ddc.vim'
 
-[[plugins]]
+#[[plugins]]
 #repo = 'shun/ddc-vim-lsp'
-#rev='v0.3.0-v1.20.0'
-repo = '~/ghq/github.com/shun/ddc-vim-lsp'
+##rev='v0.3.0-v1.20.0'
+## repo = '~/ghq/github.com/shun/ddc-vim-lsp'
+#depends = ['ddc.vim']
+#on_source = 'ddc.vim'
+
+[[plugins]]
+repo='Shougo/ddc-source-lsp'
+depends = ['ddc.vim']
+on_source = 'ddc.vim'
+hook_source = '''
+'''
+
+[[plugins]]
+repo='hrsh7th/vim-vsnip'
 depends = ['ddc.vim']
 on_source = 'ddc.vim'
 
@@ -123,6 +132,17 @@ on_source = 'ddc.vim'
 
 [[plugins]]
 repo = 'Shougo/ddc-ui-pum'
+depends = ['ddc.vim']
+on_source = 'ddc.vim'
+
+[[plugins]]
+#repo ='matsui54/denops-popup-preview.vim'
+repo = '~/ghq/github.com/matsui54/denops-popup-preview.vim'
+depends = ['ddc.vim']
+on_source = 'ddc.vim'
+
+[[plugins]]
+repo ='matsui54/denops-signature_help'
 depends = ['ddc.vim']
 on_source = 'ddc.vim'
 

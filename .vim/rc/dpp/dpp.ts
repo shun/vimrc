@@ -57,7 +57,7 @@ export class Config extends BaseConfig {
       },
       {
         path: `${myrc_home}/toml/denops.toml`,
-        lazy: true,
+        lazy: false,
       },
     ];
 
@@ -95,7 +95,6 @@ export class Config extends BaseConfig {
           } else {
             ftplugins[filetype] = toml.ftplugins[filetype];
           }
-
         }
       }
 

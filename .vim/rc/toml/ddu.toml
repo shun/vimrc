@@ -104,13 +104,13 @@ nnoremap <buffer><silent> <CR> <Cmd>close<CR>
 '''
 
 [[plugins]]
-repo = '~/ghq/github.com/shun/ddu-source-buffer'
-#repo = 'shun/ddu-source-buffer'
+#repo = '~/ghq/github.com/shun/ddu-source-buffer'
+repo = 'shun/ddu-source-buffer'
 on_source = 'ddu.vim'
 
 [[plugins]]
-repo = '~/ghq/github.com/shun/ddu-source-rg'
-#repo = 'shun/ddu-source-rg'
+#repo = '~/ghq/github.com/shun/ddu-source-rg'
+repo = 'shun/ddu-source-rg'
 on_source = 'ddu.vim'
 on_cmd = 'DduRg'
 

@@ -21,8 +21,8 @@ nnoremap Q <Nop>
 nnoremap QQ :q<cr>
 nnoremap <C-e> <END>
 nnoremap <silent><C-a> :call <SID>home()<cr>
-nnoremap <C-_> <cmd>Contextment<cr>
-xnoremap <C-_> <Plug>(contextment)
+nmap <C-_> gcc
+xnoremap <C-_> gcc
 
 noremap H <C-w>h
 noremap J <C-w>j
