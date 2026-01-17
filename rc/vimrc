@@ -1,0 +1,18 @@
+if &compatible
+  set nocompatible
+endif
+
+let s:rc_dir = expand('<sfile>:p:h')
+
+function! s:source_dir(dir) abort
+  if !isdirectory(a:dir)
+    return
+  endif
+
+  for l:path in sort(glob(a:dir . '/*.vim', 1, 1))
+    execute 'source' fnameescape(l:path)
+  endfor
+endfunction
+
+call s:source_dir(s:rc_dir . '/core')
+call s:source_dir(s:rc_dir . '/plugins')
