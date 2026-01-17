@@ -25,11 +25,13 @@ if dein#load_state('~/.cache/vim.min/')
     call dein#add('vim-denops/denops.vim')
     call dein#add('Shougo/ddc.vim')
     call dein#add('Shougo/ddc-ui-pum')
+    call dein#add('Shougo/ddc-ui-native')
     call dein#add('Shougo/pum.vim')
     call dein#add('Shougo/ddc-filter-matcher_head')
     call dein#add('Shougo/ddc-filter-sorter_rank')
-    call dein#add('shun/ddc-source-vim-lsp')
-    "call dein#add('matsui54/denops-popup-preview.vim')
+"    call dein#add('shun/ddc-source-vim-lsp')
+    call dein#add('Shougo/ddc-source-lsp')
+    call dein#add('matsui54/denops-popup-preview.vim')
     call dein#end()
     call dein#save_state()
 endif
@@ -41,20 +43,35 @@ filetype plugin indent on
 syntax enable
 
 call ddc#custom#patch_global('ui', 'pum')
-call ddc#custom#patch_global('sources', ['vim-lsp'])
+"call ddc#custom#patch_global('sources', ['vim-lsp'])
+call ddc#custom#patch_global('sources', ['lsp'])
 call ddc#custom#patch_global('sourceOptions', {
   \ '_': {
   \   'ignoreCase': v:true,
   \   'matchers': ['matcher_head'],
   \   'sorters': ['sorter_rank'],
   \ },
-  \ 'vim-lsp': {
+  \ 'lsp': {
   \     'mark': 'LSP',
   \     'forceCompletionPattern': '\$|\.|:|->|"\w+/*',
   \     'minAutoCompleteLength': 1,
   \ },
   \ })
-call pum#set_option({ 'use_complete': v:true })
+call ddc#custom#patch_global('sourceParams', {
+  \ 'buffer': {
+  \    'requireSameFiletype': v:false,
+  \    'cwdAsRoot': v:true,
+  \ },
+  \ 'lsp': {
+  \     'lspEngine': 'vim-lsp',
+  \ },
+  \ })
+
+call ddc#custom#patch_global('autoCompleteEvents', [
+    \ 'InsertEnter', 'TextChangedI', 'TextChangedP',
+    \ 'CmdlineEnter', 'CmdlineChanged', 'TextChangedT',
+    \ ])
+"call pum#set_option({ 'use_complete': v:true })
 call popup_preview#enable()
 call ddc#enable()
 
@@ -63,4 +80,5 @@ inoremap <C-n>   <Cmd>call pum#map#select_relative(+1)<CR>
 inoremap <C-p>   <Cmd>call pum#map#select_relative(-1)<CR>
 inoremap <C-y>   <Cmd>call pum#map#confirm()<CR>
 inoremap <C-o>   <Cmd>call pum#map#confirm_word()<CR>
+tnoremap <Esc> <C-\><C-n>
 let g:lsp_log_file = expand('/tmp/vim-lsp.log')

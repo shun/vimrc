@@ -40,7 +40,7 @@ let g:lsp_signature_help_enabled = 0
 
 "let g:lsp_log_verbose = 1
 let g:lsp_log_file = ""
-
+let g:lsp_settings_filetype_typescript = ['biome']
 " For clangd(c/cpp language server)
 if (executable('clangd'))
     au User lsp_setup call lsp#register_server({

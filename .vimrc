@@ -41,6 +41,7 @@ const s:vimrcs = [
 command DppUpdate call dpp#async_ext_action('installer', 'checkNotUpdated')
 command DppUpdateAll call dpp#async_ext_action('installer', 'update')
 command DppInstall call dpp#async_ext_action('installer', 'install')
+command DppMakeState call dpp#make_state()
 
 for s:vimrc in s:vimrcs
 	execute 'source' s:vimrc

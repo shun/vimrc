@@ -2,8 +2,8 @@
 " | Keybindings
 
 " nomal/visual mode
-map <silent> <F3> :<C-u>setlocal relativenumber!<cr>
-nmap <silent><ESC><ESC> :noh<cr>
+noremap <silent><ESC><ESC> :noh<cr>
+nnoremap <silent> <F3> :<C-u>setlocal relativenumber!<cr>
 nnoremap - :e %:h<cr>
 nnoremap ,tn :tabnew<cr>
 nnoremap <Leader>Q :bd!<cr>

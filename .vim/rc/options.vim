@@ -71,3 +71,16 @@ if has("autocmd")
   autocmd FileType plantuml        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType stpl            setlocal sw=4 sts=4 ts=4 noet
 endif
+
+"if executable('efm-langserver')
+"  augroup LspEFM
+"    autocmd!
+"    autocmd User lsp_setup call lsp#register_server({
+"        \ 'name': 'efm-langserver',
+"        \ 'cmd': {server_info->['efm-langserver', '-c=/Users/skudo/.config/efm-langserver/config.yaml']},
+"        \ 'allowlist': ['javascript', 'typescript', 'javascriptreact', 'typescriptreact'],
+"        \ })
+"  augroup END
+"endif
+
+"autocmd BufWritePre *.js,*.ts,*.jsx,*.tsx execute('LspDocumentFormatSync --server=efm-langserver')
