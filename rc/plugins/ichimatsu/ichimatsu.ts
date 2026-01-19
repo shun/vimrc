@@ -7,7 +7,8 @@ const config = {
 } as const;
 
 export async function hooks(ctx: Context) {
+  const expr = await ctx.denops.call("string", config) as string;
   return {
-    hook_add: `let g:ichimatsu_config = '${config}'`,
+    hook_add: `let g:ichimatsu_config = ${expr}`,
   };
 }

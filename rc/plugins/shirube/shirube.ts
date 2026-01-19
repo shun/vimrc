@@ -10,6 +10,7 @@ const config = {
     "<CR>": "open_cursor",
     "-": "open_parent",
     "q": "close",
+    "<C-r>": "reload",
   },
   keymaps_global: {
     "-": "open_shirube",
