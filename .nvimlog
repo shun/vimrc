@@ -1,0 +1,10 @@
+WRN 2026-01-31T23:23:13.564 ?.33708    server_start:199: Failed to start server: operation not permitted: /var/folders/6g/k0b_hz1n5tddwrbq2yz262_80000gn/T/nvim.skudo/17y7Ha/nvim.33708.0
+WRN 2026-01-31T23:23:37.710 ?.33766    server_start:199: Failed to start server: operation not permitted: /var/folders/6g/k0b_hz1n5tddwrbq2yz262_80000gn/T/nvim.skudo/ECnC4W/nvim.33766.0
+WRN 2026-01-31T23:23:59.028 ?.33877    server_start:199: Failed to start server: operation not permitted: /var/folders/6g/k0b_hz1n5tddwrbq2yz262_80000gn/T/nvim.skudo/vSgm41/nvim.33877.0
+WRN 2026-01-31T23:24:09.961 ?.33962    server_start:199: Failed to start server: operation not permitted: /var/folders/6g/k0b_hz1n5tddwrbq2yz262_80000gn/T/nvim.skudo/yE60lK/nvim.33962.0
+WRN 2026-01-31T23:24:58.118 ?.34184    server_start:199: Failed to start server: operation not permitted: /var/folders/6g/k0b_hz1n5tddwrbq2yz262_80000gn/T/nvim.skudo/gqCNTB/nvim.34184.0
+WRN 2026-01-31T23:25:06.791 ?.34248    server_start:199: Failed to start server: operation not permitted: /var/folders/6g/k0b_hz1n5tddwrbq2yz262_80000gn/T/nvim.skudo/d5rBC9/nvim.34248.0
+WRN 2026-01-31T23:25:13.113 ?.34331    server_start:199: Failed to start server: operation not permitted: /var/folders/6g/k0b_hz1n5tddwrbq2yz262_80000gn/T/nvim.skudo/In6OIZ/nvim.34331.0
+WRN 2026-01-31T23:25:31.619 ?.34398    server_start:199: Failed to start server: operation not permitted: /var/folders/6g/k0b_hz1n5tddwrbq2yz262_80000gn/T/nvim.skudo/ubvgia/nvim.34398.0
+WRN 2026-01-31T23:25:41.567 ?.34462    server_start:199: Failed to start server: operation not permitted: /var/folders/6g/k0b_hz1n5tddwrbq2yz262_80000gn/T/nvim.skudo/m4eybL/nvim.34462.0
+WRN 2026-01-31T23:50:06.446 ?.38350    server_start:199: Failed to start server: operation not permitted: /var/folders/6g/k0b_hz1n5tddwrbq2yz262_80000gn/T/nvim.skudo/a4KVru/nvim.38350.0
