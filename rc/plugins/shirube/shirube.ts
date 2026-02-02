@@ -25,6 +25,6 @@ const config = {
 export async function hooks(ctx: Context) {
   const expr = await ctx.denops.call("string", config) as string;
   return {
-    hook_add: `let g:shirube = ${expr}`,
+    hook_add: `let g:shirube_config = ${expr}`,
   };
 }

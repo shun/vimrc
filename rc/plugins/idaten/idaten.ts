@@ -9,7 +9,8 @@ export async function configure(ctx: Context): Promise<Plugin[]> {
   ) as string;
   return [
     ensure("https://github.com/vim-denops/denops.vim.git"),
-    ensure("https://github.com/shun/shirube.vim", {
+    ensure("~/ghq/github.com/shun/shirube.vim", {
+    //ensure("https://github.com/shun/shirube.vim", {
       hookFile: `${rcDir}/shirube/shirube.ts`,
     }),
     ensure("~/ghq/github.com/shun/ichimatsu.vim", {
