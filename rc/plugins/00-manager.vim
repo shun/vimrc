@@ -1,3 +1,6 @@
+" denops shared server settings
+let g:denops_server_addr = '127.0.0.1:32123'
+
 let g:idaten_config = expand('<sfile>:p:h:h:h') .. '/rc/plugins/idaten/idaten.ts'
 
 " Use local version for development

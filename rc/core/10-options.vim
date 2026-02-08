@@ -122,6 +122,9 @@ set ttimeoutlen=50
 " ワイルドカードの大文字小文字を無視
 set wildignorecase
 
+" コマンドライン補完をステータスライン領域に表示
+set wildmenu
+
 " ワイルドモードの設定
 set wildmode=longest,full
 
